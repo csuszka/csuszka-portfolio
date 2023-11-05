@@ -1,6 +1,6 @@
 import { usePageState } from "../context/page-state-context";
 
-export default function About() {
+export default function Contact() {
   const [pageState] = usePageState();
 
   return (
@@ -11,7 +11,7 @@ export default function About() {
             pageState.context.theme === "light" ? "bg-white" : ""
           } h-full max-w-7xl`}
         >
-          <h1 className="text-lime-600">About!</h1>
+          <h1 className="text-lime-600">Contact!</h1>
         </div>
       </div>
     </>
