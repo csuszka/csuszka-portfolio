@@ -1,9 +1,21 @@
 import { useState } from "react";
 import viteLogo from "/vite.svg";
 import "./App.css";
+import { usePageState } from "./context/page-state-context";
+import About from "./pages/About";
+import Projects from "./pages/Projects";
 
 function App() {
   const [count, setCount] = useState(0);
+  const [pageState] = usePageState();
+
+  if (pageState.matches("about")) {
+    return <About />;
+  }
+
+  if (pageState.matches("projects")) {
+    return <Projects />;
+  }
 
   return (
     <>

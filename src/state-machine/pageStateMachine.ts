@@ -1,10 +1,10 @@
-import { createMachine, sendParent } from "xstate";
+import { createMachine } from "xstate";
 
 export type PageContext = {
   theme: string;
 };
 
-export type PageEvent = { type: "CANCEL" };
+export type PageEvent = { type: "OPEN_PROJECTS" } | { type: "CANCEL" };
 
 const pageDefaultState: PageContext = {
   theme: "light",
@@ -18,11 +18,12 @@ const pageStateMachine = createMachine<PageContext, PageEvent>({
   states: {
     about: {
       on: {
-        CANCEL: {
-          actions: sendParent("FINISH_CHECKOUT"),
+        OPEN_PROJECTS: {
+          target: "projects",
         },
       },
     },
+    projects: {},
   },
 });
 
